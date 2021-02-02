@@ -8,14 +8,14 @@ In this demo, the HYPERDRIVE tunned XGBOOST model emerged as the best performing
 ## Project Set Up and Installation
 If you are running your python codes in your own environment, follow [SDK installation instructions](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-configure-environment). But if your experiments are run in Azure Notebooks and Azure managed environments, the SDK is already installed, which is the case of this experiment.
 Also, ensure that all the required libraries are installed in your environment. For this experiment, we created a Docker based environment with the following packages installed:
-1.	Conda Packages
--	scikit-learn
--	numpy
--	pandas
+1. Conda Packages
+      -	scikit-learn
+      -	numpy
+      -	pandas
 
-2.	Pip Packages
--	azureml-sdk 
--	xgboost
+2. Pip Packages
+      -	azureml-sdk 
+      -	xgboost
 
 
 ## Dataset
@@ -110,10 +110,10 @@ As can be seen, it resulted in a 12.61% performance improvement to the XGBOOST m
 ## Model Deployment
 A deployed model interacts with a production environment via HTTP API service in order to receive input via a POST request and return the model’s predicted output. To deploy the best model:
 
-1.	Create a container image in Azure to install all the environment needed by the model to run as a webservice. 
-2.	Consume Model Endpoints by passing a Python script, score.py, that includes code to predict the test values of an inbound data point.
-3.	Setup the deployment configuration. In our case, we used the Azure Container Instance webservice to create the deployed model endpoint, which is a HTTP endpoint with a REST API that allows you to send data and receive the prediction returned by the model.
-4.	Test the deployed model. We passed a JSON data of two data points to the ACI web service to get prediction values for two liver disease patients. The JSON file must be an array of rows of data where each row should either be an array of values appearing in the order it appears in the training set. 
+1. Create a container image in Azure to install all the environment needed by the model to run as a webservice. 
+2. Consume Model Endpoints by passing a Python script, score.py, that includes code to predict the test values of an inbound data point.
+3. Setup the deployment configuration. In our case, we used the Azure Container Instance webservice to create the deployed model endpoint, which is a HTTP endpoint with a REST API that allows you to send data and receive the prediction returned by the model.
+4. Test the deployed model. We passed a JSON data of two data points to the ACI web service to get prediction values for two liver disease patients. The JSON file must be an array of rows of data where each row should either be an array of values appearing in the order it appears in the training set. 
 
 The test sample JSON data is given as follows:
 '{"data": [[66.0, 1.0, 0.0, 0.9, 0.2, 210.0, 35.0, 32.0, 8.0, 3.9], [50.0, 0.0, 1.0, 9.4, 5.2, 268.0, 21.0, 63.0, 6.4, 2.8]]}'
@@ -128,5 +128,5 @@ https://www.youtube.com/watch?v=32AiXMOkgRw
 ## Standout Suggestions
 Only one standout suggestion was made because I deployed XGBOOST model which does not permit the creation of an ONNX model and so only logging was attempted. 
 
--	Model Logging: The logging feature of the Azure diagnostic tool, which logs anomalies and errors, makes debugging a web service application easy. The performance logs can be visualized by enabling “Application Insights” in the deployment configuration settings and through calling a logging function *logging.basicConfig(level=logging.DEBUG)* within the score.py script. For the deployed model, its logs are given in the below image.
+ - Model Logging: The logging feature of the Azure diagnostic tool, which logs anomalies and errors, makes debugging a web service application easy. The performance logs can be visualized by enabling “Application Insights” in the deployment configuration settings and through calling a logging function *logging.basicConfig(level=logging.DEBUG)* within the score.py script. For the deployed model, its logs are given in the below image.
 
