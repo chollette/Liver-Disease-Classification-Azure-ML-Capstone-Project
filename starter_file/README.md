@@ -140,7 +140,7 @@ The test sample JSON data is given as follows:
 ## Screen Recording
 For a demonstration of the capabilities of Azure ML python SDK in developing End-to-End ML production model, click the provided link to a screencast recording of the project. 
 
-https://www.youtube.com/watch?v=32AiXMOkgRw
+[![Azure Nanodegree Capstone Project: Building End-to-End ML Production Pipeline Using Azure Python SDK](https://www.youtube.com/watch?v=32AiXMOkgRw)](https://www.youtube.com/watch?v=32AiXMOkgRw)
 
 
 ## Standout Suggestions
