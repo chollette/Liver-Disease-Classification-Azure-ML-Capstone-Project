@@ -3,6 +3,10 @@
 ## Overview
 This is a Capstone project in fulfilment of the Udacity Azure ML Nanodegree. This project is aimed at demonstrating the capabilities of the Azure ML studio in training a model and deploying it. There are two ways Azure ML studio achieves this: one is through AUTOML, a codeless configuration that automates machine learning. Another, is the HYPERDRIVE, a custom hyperparameter tuning functionality for optimizing a ML model's performance. Then, from any of these two functionalities of the Azure ML studio, a production model will emerge to enable us explore the Azure ML End-to-End production pipeline solution for enabling interaction between a deployed model and other web services.
 
+**The Project Workflow**
+![](images/entire-project-workflow.jpg)
+
+
 In this demo, the HYPERDRIVE tunned XGBOOST model emerged as the best performing model with an accuracy of 99.988% against a 99.978% accuracy for the AUTOML derived model. May it be noted that the AUTOML inspired the hyperdrive parameter optimization. Therefore, AUTOML proves to be a useful tool to guide ML model selection and parameter tunning for both experts and novice to save time training different models. 
 
 ## Project Set Up and Installation
@@ -105,6 +109,11 @@ From experiments, tuning the *n_estimators*, *max-depth*, and *Subsample* parame
 **Graphical Plot of the XGBOOST HypyerDrive Run** 
 ![](images/hyperdrive-visuals.jpg)
 
+
+**Best Run ID**
+![](images/HD-best-model-IDandParameters.jpg)
+
+
 As can be seen, it resulted in a 12.61% performance improvement to the XGBOOST model retrieved by the AUTOML and a 0.01% deference in comparison to the AUTOML best performing model, the VotingEnsemble model. If there could be a better model, maybe that can be achieved through standardizing the dataset prior to hyperparameter tuning the XGBOOST model, but i doubt this because xgboost, just like randomforest, is mostly insensitive to data normalization and it might affect performance accuracy. 
 
 ## Model Deployment
@@ -112,7 +121,16 @@ A deployed model interacts with a production environment via HTTP API service in
 
 1. Create a container image in Azure to install all the environment needed by the model to run as a webservice. 
 2. Consume Model Endpoints by passing a Python script, score.py, that includes code to predict the test values of an inbound data point.
-3. Setup the deployment configuration. In our case, we used the Azure Container Instance webservice to create the deployed model endpoint, which is a HTTP endpoint with a REST API that allows you to send data and receive the prediction returned by the model.
+3. Setup the deployment configuration. In our case, we used the Azure Container Instance webservice to create the deployed model endpoint, which is a HTTP endpoint with a REST API that allows you to send data and receive the prediction returned by the model. Once the model has been deployed and succeeded, the status is changed to healthy. For a view of our deployed model status, it can be viewed on the Azure Python SDK or via the Azure ML Studio as can be seen in the below given images, respectively.
+
+**Deployed Model Status via Azure Python SDK**
+![](images/Active-model-Endpoint.jpg)
+
+
+**Deployed Model Status via Azure ML Studio**
+![](images/Active-model-Endpoint2.jpg)
+
+
 4. Test the deployed model. We passed a JSON data of two data points to the ACI web service to get prediction values for two liver disease patients. The JSON file must be an array of rows of data where each row should either be an array of values appearing in the order it appears in the training set. 
 
 The test sample JSON data is given as follows:
@@ -129,4 +147,7 @@ https://www.youtube.com/watch?v=32AiXMOkgRw
 Only one standout suggestion was made because I deployed XGBOOST model which does not permit the creation of an ONNX model and so only logging was attempted. 
 
  - Model Logging: The logging feature of the Azure diagnostic tool, which logs anomalies and errors, makes debugging a web service application easy. The performance logs can be visualized by enabling “Application Insights” in the deployment configuration settings and through calling a logging function *logging.basicConfig(level=logging.DEBUG)* within the score.py script. For the deployed model, its logs are given in the below image.
+ 
+ **Deployed Model Logs**
+ ![](images/enabling-logging.jpg)
 
