@@ -171,5 +171,12 @@ Only one standout suggestion was made because I deployed XGBOOST model which doe
  **Deployed Model Logs**
  ![](images/enabling-logging.jpg)
  
- ## Future Work
+
+## Future Work
+The following are possible improvements to this project that will enable us to explore the numerous functionalities of the Azure ML Studio. They are:
+
+  - Tune the hyperparameters of the AUTOML best running model, the VotingEnsemble model. 
+  - Deploy the overall project best running model to a device running Azure IoT Edge by exploring the IoT Edge module. 
+  - Adopt the Azure monitoring data for extensively analysing training data in real-time as it grows from external sources.
+
 
