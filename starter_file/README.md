@@ -87,11 +87,14 @@ Provided as images are automl run *experiments*, visualized using Run Details Wi
 **RunDetails widget to show the different experiments**
 ![](images/automl-run-widget.jpg)
 
+
 **Best Model ID and Parameters**
 ![](images/automl-run-details.jpg)
 
+
 **Registered Model to Workspace**
 ![](images/Registered-model-2.jpg)
+
 
 ## Hyperparameter Tuning
 In this project, the Azure ML python SDK services is employed to train a model on the Liver Disease dataset on a four-node CPU through employing the capabilities of the Azure ML HyperDrive for tunning a model’s hyperparameters in order to optimize its performance. 
