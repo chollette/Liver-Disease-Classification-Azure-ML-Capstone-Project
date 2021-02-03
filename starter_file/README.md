@@ -89,11 +89,11 @@ Provided as images are automl run *experiments*, visualized using Run Details Wi
 
 
 **Best Model ID and Parameters**
-![](images/automl-run-details.jpg)
+![](images/automl-run-details2.jpg)
 
 
 **Registered Model to Workspace**
-![](images/Registered-model-2.jpg)
+![](images/Registered-model2.jpg)
 
 
 ## Hyperparameter Tuning
