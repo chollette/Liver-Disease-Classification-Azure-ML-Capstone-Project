@@ -150,4 +150,6 @@ Only one standout suggestion was made because I deployed XGBOOST model which doe
  
  **Deployed Model Logs**
  ![](images/enabling-logging.jpg)
+ 
+ ## Future Work
 
