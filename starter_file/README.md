@@ -114,7 +114,7 @@ From experiments, tuning the hyperparameters resulted in *n_estimators = 1000*, 
 ![](images/HD-best-model-IDandParameters.jpg)
 
 
-As can be seen, it resulted in a 12.61% performance improvement to the XGBOOST model retrieved by the AUTOML and a 0.01% deference in comparison to the AUTOML best performing model, the VotingEnsemble model. If there could be a better model, maybe that can be achieved through standardizing the dataset prior to hyperparameter tuning the XGBOOST model, but i doubt this because xgboost, just like randomforest, is mostly insensitive to data normalization and it might affect performance accuracy. 
+As can be seen, it resulted in a 12.61% performance improvement to the XGBOOST model retrieved by the AUTOML and a 0.00982% deference in comparison to the AUTOML best performing model, the VotingEnsemble model. If there could be a better model, maybe that can be achieved through standardizing the dataset prior to hyperparameter tuning the XGBOOST model, but i doubt this because xgboost, just like randomforest, is mostly insensitive to data normalization and it might affect performance accuracy. 
 
 ## Model Deployment
 A deployed model interacts with a production environment via HTTP API service in order to receive input via a POST request and return the model’s predicted output. To deploy the best model:
