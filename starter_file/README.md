@@ -86,9 +86,9 @@ For this project, we tuned the hyperparameters of the 5th runner-up of the *best
 
 ### HyperDrive Setup
 Considering that the HyperDrive requires a search space for tuning the hyperparameters, this project adopted the Random Sampling search space with the intention to randomly sample hyperparameter values from a defined search space without incurring computational cost. This search space supports hyperparameter values provided as discrete or continuous values; but this project search space is set to discrete because it achieved the best accuracies compared to the accuracies obtained of the model when the continuous search space was used. The tuned hyperparameters can be viewed ![here](hyperparameter_tuning.ipynb) and are described as follows:
-	n_estimators: Number of trees you want the algorithm to build. The more rows in the data, the more trees are needed. 
-	max_depth: Controls how specialized each tree is to the training dataset. The more the value the more likely overfitting. 
-	Subsample: Randomly selected subset of the training dataset to fit each tree. Fewer samples cause more variance for each tree. 
+	n_estimators: Number of trees you want the algorithm to build. The more rows in the data, the more trees are needed. So, the following values are ranges tuned for     	       number of trees: [10, 50, 100, 500, 1000, 5000].
+	max_depth: Controls how specialized each tree is to the training dataset. The more the value the more likely overfitting. So, the following values are ranges tuned   	      for the maximum depth of the tree: [3, 4, 5, 6, 7, 8, 9, 10].
+	Subsample: Randomly selected subset of the training dataset to fit each tree. Fewer samples cause more variance for each tree. So, the following values are ranges   	     tuned for the subset of the training data to fit to the tree: [0.5,0.6,0.7,0.8,0.9,1].
 
 Further, the Random Search space supports early termination of low-performing models. To apply the early stopping policy, this project adopted the “Bandit Termination Policy” to ensure that the Azure ML pipeline does not waste time exploring runs with hyperparameters that are not promising. The policy is expressed as:
 
@@ -98,7 +98,7 @@ A run terminates when metric < T.
 
 
 ### Results
-From experiments, tuning the *n_estimators*, *max-depth*, and *Subsample* parameters resulted in a 99.988% accuracy of the XGBOOST model. Performance can visualized in the provided images.
+From experiments, tuning the hyperparameters resulted in *n_estimators = 1000*, *max-depth = 5*, and *Subsample = 0.8* which contributed to the high accuracy value of 99.988% accuracy of the XGBOOST model. Performance can visualized in the provided images.
 
 **The RunDetails Widget View of the XGBOOST HypyerDrive Run**
 ![](images/hyperdrive-run-widget.jpg)
