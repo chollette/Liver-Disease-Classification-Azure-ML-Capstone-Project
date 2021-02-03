@@ -68,13 +68,30 @@ The AutoML pipeline is observed to have produced models with very good performan
 4. LightGBM with MaxAbsScaler preprocessing technique (tweaked), and 
 5. XGBoostClassifier with MaxAbsScaler preprocessing technique
 
-From experiments, the *n_cross_validations* and *experiment_timeout_hours* were two automl configuration settings that contributed to the high accuracy of the automl run. The top-most performing model of the AUTOML run is the Voting Ensemble with an accuracy of 99.978%. Provided as images are automl run *experiments*, visualized using Run Details Widget, and the retrieved automl run *Best Model ID*.
+From experiments, the *n_cross_validations* and *experiment_timeout_hours* were two automl configuration settings that contributed to the high accuracy of the automl run. The top-most performing model of the AUTOML run is the Voting Ensemble with an accuracy of 99.978% achieved from the ensemble of LightGBMClassifier and LogisticRegression Classifier. The AUTOML used the default values of the LightGBMClassifier and tuned the parameters of the LogisticRegression classifier; they are:
+
+**LightGBMClassifier Parameters**
+  - boosting_type = 'gbdt':  traditional Gradient Boosting Decision Tree. 
+  - max_depth = -1: Maximum tree depth for base learners, <=0 means no limit.
+  - learning_rate = 0.1: Boosting learning rate
+  - min_child_samples = 20: Minimum number of data needed in a child (leaf).
+  - min_child_weight =0.001: Minimum sum of instance weight (hessian) needed in a child (leaf).
+  - colsample_bytree = 1.: Subsample ratio of columns when constructing each tree.
+
+**LogisticRegression Classifier Parameters**
+  - C = 1526.4179671752302: Regularization strength; smaller values specify stronger regularization.
+  - max-iter = 100: Maximum number of iterations taken for the solvers to converge.
+  
+Provided as images are automl run *experiments*, visualized using Run Details Widget, the retrieved automl run *Best Model ID and parameters* and the Registered Model to workspace. 
 
 **RunDetails widget to show the different experiments**
 ![](images/automl-run-widget.jpg)
 
-**Best Model ID to show the best performing model of all the runs**
-![](images/automl-best-model-with-runID.jpg)
+**Best Model ID and Parameters**
+![](images/automl-run-details.jpg)
+
+**Registered Model to Workspace**
+![](images/Registered-model-2.jpg)
 
 ## Hyperparameter Tuning
 In this project, the Azure ML python SDK services is employed to train a model on the Liver Disease dataset on a four-node CPU through employing the capabilities of the Azure ML HyperDrive for tunning a model’s hyperparameters in order to optimize its performance. 
@@ -86,9 +103,9 @@ For this project, we tuned the hyperparameters of the 5th runner-up of the *best
 
 ### HyperDrive Setup
 Considering that the HyperDrive requires a search space for tuning the hyperparameters, this project adopted the Random Sampling search space with the intention to randomly sample hyperparameter values from a defined search space without incurring computational cost. This search space supports hyperparameter values provided as discrete or continuous values; but this project search space is set to discrete because it achieved the best accuracies compared to the accuracies obtained of the model when the continuous search space was used. The tuned hyperparameters can be viewed ![here](hyperparameter_tuning.ipynb) and are described as follows:
-	n_estimators: Number of trees you want the algorithm to build. The more rows in the data, the more trees are needed. So, the following values are ranges tuned for     	       number of trees: [10, 50, 100, 500, 1000, 5000].
-	max_depth: Controls how specialized each tree is to the training dataset. The more the value the more likely overfitting. So, the following values are ranges tuned   	      for the maximum depth of the tree: [3, 4, 5, 6, 7, 8, 9, 10].
-	Subsample: Randomly selected subset of the training dataset to fit each tree. Fewer samples cause more variance for each tree. So, the following values are ranges   	     tuned for the subset of the training data to fit to the tree: [0.5,0.6,0.7,0.8,0.9,1].
+  - n_estimators: Number of trees you want the algorithm to build. The more rows in the data, the more trees are needed. So, the following values are ranges tuned for             number of trees: [10, 50, 100, 500, 1000, 5000].
+  - max_depth: Controls how specialized each tree is to the training dataset. The more the value the more likely overfitting. So, the following values are ranges tuned for       the maximum depth of the tree: [3, 4, 5, 6, 7, 8, 9, 10].
+  - Subsample: Randomly selected subset of the training dataset to fit each tree. Fewer samples cause more variance for each tree. So, the following values are ranges             tuned for the subset of the training data to fit to the tree: [0.5,0.6,0.7,0.8,0.9,1].
 
 Further, the Random Search space supports early termination of low-performing models. To apply the early stopping policy, this project adopted the “Bandit Termination Policy” to ensure that the Azure ML pipeline does not waste time exploring runs with hyperparameters that are not promising. The policy is expressed as:
 
