@@ -1,15 +1,15 @@
 # Capstone Project - Azure Machine Learning Engineer
 
 # Table of Contents
-1. [Introduction]()
-2. [Import all Dependencies]()
-3. [Setup Workspace and Experiment]()
-4. [Dataset]()
-5. [Hyperdrive Configuration]()
+1. [Overview]()
+2. [Project Setup and Installation]()
+3. [Dataset]()
+4. [Azure ML Pipeline]()
+5. [Hyperparameter Tuning]()
 6. [Model Deployment]()
-7. [Test]()
-8. [Get Logs]()
-9. [Delete Resources]()
+7. [Screen Recording]()
+8. [Standout Suggestions]()
+9. [Future Work]()
 
 ## Overview
 This is a Capstone project in fulfilment of the Udacity Azure ML Nanodegree. This project is aimed at demonstrating the capabilities of the Azure ML studio in training a model and deploying it. There are two ways Azure ML studio achieves this: one is through AUTOML, a codeless configuration that automates machine learning. Another, is the HYPERDRIVE, a custom hyperparameter tuning functionality for optimizing a ML model's performance. Then, from any of these two functionalities of the Azure ML studio, a production model will emerge to enable us explore the Azure ML End-to-End production pipeline solution for enabling interaction between a deployed model and other web services.
