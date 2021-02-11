@@ -63,7 +63,7 @@ The liver disease dataset comprises of the [train data]( "https://raw.githubuser
 An AutoML is built on the Liver Disease dataset to automatically train and tune machine learning algorithms at various hyperparameter tuning and feature selection for an optimal selection of a model that best fits the training dataset using a given target metric. The pipeline is diagrammatically provided below.
 
 **AUTOML Pipeline**
-![](images/AutoML-pipeline.png)
+![](images/AutoML-pipeline2.png)
 
 The AUTOML configurations used in setting-up the runs is provided in the below given image.
 
@@ -113,7 +113,7 @@ In this project, the Azure ML python SDK services is employed to train a model o
 For this project, we tuned the hyperparameters of the 5th runner-up of the *best performing model of the AUTOML*, which is the XGBOOST model with a performance of 87.378% accuracy to observe how tuning the XGBOOST hyperparameters while using the best values of other parameters as determined by AUTOML. The HyperDrive pipeline is illustrated as follows.
 
 **HYPERDRIVE Pipeline**
-![](images/Hyperdrive-Pipeline.png)
+![](images/Hyperdrive-Pipeline2.png)
 
 ### HyperDrive Setup
 Considering that the HyperDrive requires a search space for tuning the hyperparameters, this project adopted the Random Sampling search space with the intention to randomly sample hyperparameter values from a defined search space without incurring computational cost. This search space supports hyperparameter values provided as discrete or continuous values; but this project search space is set to discrete because it achieved the best accuracies compared to the accuracies obtained of the model when the continuous search space was used. The tuned hyperparameters can be viewed ![here](hyperparameter_tuning.ipynb) and are described as follows:
