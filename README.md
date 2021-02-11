@@ -14,8 +14,9 @@
 ## Overview
 This is a Capstone project in fulfilment of the Udacity Azure ML Nanodegree. This project is aimed at demonstrating the capabilities of the Azure ML studio in training a model and deploying it. There are two ways Azure ML studio achieves this: one is through AUTOML, a codeless configuration that automates machine learning. Another, is the HYPERDRIVE, a custom hyperparameter tuning functionality for optimizing a ML model's performance. Then, from any of these two functionalities of the Azure ML studio, a production model will emerge to enable us explore the Azure ML End-to-End production pipeline solution for enabling interaction between a deployed model and other web services.
 
-                                                                           **The Project Workflow**
-<img src="images/entire-project-workflow.jpg" width="500" height="250">
+
+**The Project Workflow**
+<img src="images/entire-project-workflow.jpg" width="700" height="500">
 
 
 In this demo, the HYPERDRIVE tunned XGBOOST model emerged as the best performing model with an accuracy of 99.988% against a 99.978% accuracy for the AUTOML derived model. May it be noted that the AUTOML inspired the hyperdrive parameter optimization. Therefore, AUTOML proves to be a useful tool to guide ML model selection and parameter tunning for both experts and novice to save time training different models. 
