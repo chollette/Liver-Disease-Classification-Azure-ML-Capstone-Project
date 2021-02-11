@@ -64,7 +64,9 @@ The liver disease dataset comprises of the [train data]( "https://raw.githubuser
 An AutoML is built on the Liver Disease dataset to automatically train and tune machine learning algorithms at various hyperparameter tuning and feature selection for an optimal selection of a model that best fits the training dataset using a given target metric. The pipeline is diagrammatically provided below.
 
 **AUTOML Pipeline**
-![](images/AutoML-pipeline2.png)
+
+<img src="images/AutoML-pipeline2.png" width="700" height="500">
+
 
 The AUTOML configurations used in setting-up the runs is provided in the below given image.
 
