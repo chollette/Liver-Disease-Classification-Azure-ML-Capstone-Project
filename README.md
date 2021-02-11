@@ -65,7 +65,7 @@ An AutoML is built on the Liver Disease dataset to automatically train and tune 
 
 **AUTOML Pipeline**
 
-<img src="images/AutoML-pipeline2.png" width="700" height="500">
+<img src="images/AutoML-pipeline2.png" width="500" height="500">
 
 
 The AUTOML configurations used in setting-up the runs is provided in the below given image.
