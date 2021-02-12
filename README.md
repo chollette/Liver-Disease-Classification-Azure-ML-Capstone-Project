@@ -233,3 +233,7 @@ The following are possible improvements to this project that will enable us to e
   - Adopt the Azure monitoring data for extensively analysing training data in real-time as it grows from external sources.
 
 
+License
+----
+
+MIT
